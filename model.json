@@ -1,0 +1,55 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "mi horoscopo personalizado",
+            "intents": [
+                {
+                    "name": "SetReminderIntent",
+                    "slots": [
+                        {
+                            "name": "reminderText",
+                            "type": "AMAZON.SearchQuery"
+                        },
+                        {
+                            "name": "reminderTime",
+                            "type": "AMAZON.TIME"
+                        }
+                    ],
+                    "samples": [
+                        "recuerdame a las {reminderTime}",
+                        "recuerdame {reminderText}"
+                    ]
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.RepeatIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.YesIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NoIntent",
+                    "samples": []
+                }
+            ],
+            "types": []
+        }
+    }
+}
