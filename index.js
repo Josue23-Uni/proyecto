@@ -6,18 +6,22 @@ const SetReminderIntentHandler = {
                Alexa.getIntentName(handlerInput.requestEnvelope) === 'SetReminderIntent';
     },
     async handle(handlerInput) {
-        //const reminderText = handlerInput.requestEnvelope.request.intent.slots.reminderText.value;
-       // const reminderTime = handlerInput.requestEnvelope.request.intent.slots.reminderTime.value;
+        const reminderText = handlerInput.requestEnvelope.request.intent.slots.reminderText.value;
+       const reminderTime = handlerInput.requestEnvelope.request.intent.slots.reminderTime.value;
         const {intent}=handlerInput.requestEnvelope.request;
-        const reminderText = "mi recordatorio"
-        const reminderTime = new Date() 
-        //if (!reminderTime) {
-            //return handlerInput.responseBuilder
-              // .speak("Por favor dime qué quieres que te recuerde.")
-               // .reprompt("¿A qué hora pongo el recordatorio?")
-               // .getResponse();
-       // }
-
+        //const reminderText = "mi recordatorio"
+        //const reminderTime = new Date() 
+        if (!reminderTime) {
+            return handlerInput.responseBuilder
+              .speak("¿A qué hora pongo el recordatorio?")
+               //.reprompt("¿A qué hora pongo el recordatorio?")
+               .getResponse();
+        }
+if (!reminderText) {
+            return handlerInput.responseBuilder
+              .speak("Por favor dime qué quieres que te recuerde.")
+               .getResponse();
+        }
         const reminderServiceClient = handlerInput.serviceClientFactory.getReminderManagementServiceClient();
         const upsServiceClient = handlerInput.serviceClientFactory.getUpsServiceClient();
 
@@ -74,7 +78,7 @@ const YesIntentHandler = {
                Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.YesIntent';
     },
     handle(handlerInput) {
-        const speakOutput = 'Mesaje de prueba';
+        const speakOutput = '¿Qué quieres que te recuerde?';
 
         return handlerInput.responseBuilder
             .speak(speakOutput)
